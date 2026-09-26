@@ -21,13 +21,13 @@ Website top-up game (voucher/diamond/UC) dengan model bisnis reseller H2H — be
 
 **Target Throughput:** ~60 req/s (40-45 clean, 60 with light swap)
 
-**Deployment configs:** `deploy/` directory (php-fpm, nginx, mysql, supervisor, .env.production)
+**Deployment configs:** file konfigurasi php-fpm, nginx, mysql, dan supervisor — tidak disertakan di repository ini (panduan langkah demi langkah di `docs/deployment.md`)
 
 **Documentation:**
 - `docs/deployment.md` — Full VPS deployment guide (step-by-step)
 - `docs/redis-setup.md` — Redis install, config, monitoring, troubleshooting
 - `ADR-0014 (redis-queue-cache-session)` — ADR for Redis decision
-- `deploy/OPTIMIZATION.md` — Quick deploy commands + memory budget
+- Dokumen optimasi deploy (quick deploy commands + memory budget) — tidak disertakan di repository ini
 
 ## Design System — Hallmark & Theme (Implemented)
 
@@ -39,7 +39,7 @@ Website top-up game (voucher/diamond/UC) dengan model bisnis reseller H2H — be
 - **Tokens** — `tokens.css` OKLCH dual custom-dual: light paper 98.2% 0.008 35 / accent 58% 0.22 24, dark paper 16% 0.02 35 / accent 62% 0.24 24 warm. Semantic `--color-paper` / `--color-ink` (17.2:1 light / 14.8:1 dark PASS 4.5), muted 5.26:1 / 7.1:1, badge text WCAG 4.5:1 dual, shadow `0.07`↔`0.45`.
 - **Typography 2+1** — Chakra Petch (display) + Plus Jakarta Sans (body) + VT323 outlier (mono), `--font-display` / `--font-body` / `--font-mono`, tracking `-0.02em`, line-height tight 1.02 / body 1.55.
 - **Radii subtle blocky** — `--radius-card 8px` (Minecraft A, not pill), not full voxel per legibility.
-- **Pixel-cube CSS Tier-A** — `pixel-cube` w-7 h-7 box-shadow 2px 2px 0 ink, subtle blocky, dark shadow adaptif, Tier-A enrichment per log Hallmark internal.
+- **Pixel-cube CSS Tier-A** — `pixel-cube` w-7 h-7 box-shadow 2px 2px 0 ink, subtle blocky, dark shadow adaptif, Tier-A enrichment per log Hallmark internal (tidak dipublikasikan).
 - **Badge Tokens** — 6 state (success/danger/warning/info/processing/neutral), `--color-*-soft` + `--color-*-text` dual, gate 41 accent-ink 4.54:1 light / 7.3:1 dark PASS, `transaction-status-badge` component.
 - **Card Animations** — `fofa-card` hover lift `-1px` + shadow `0 4px 16px`, press `translateY(0)` / `scale(0.97)`, `card-enter` stagger 300ms ease-out + 40ms per index, modal/dropdown enter ease-out dur 300/200, toast 800ms, prefers-reduced-motion nuclear + targeted guard, theme-toggle crossfade opacity 150ms.
 - **Tailwind CSS v4** — CSS-first config via `@import "tailwindcss"` + `@custom-variant dark (&:where(.dark, .dark *))` di `resources/css/app.css`. Tidak ada `tailwind.config.js` — theme config di CSS. Dark mode via `.dark` class toggle di `<html>`. Vite plugin `@tailwindcss/vite` (bukan PostCSS). Unlayered CSS menang atas layered utilities (important untuk custom CSS override).
@@ -63,9 +63,9 @@ Website top-up game (voucher/diamond/UC) dengan model bisnis reseller H2H — be
 - **Page Title System** — Dynamic per-page `<title>` via `$title` variable. Format: `[Page Name] - Fofa Shop`. Auth pages (Livewire Volt) pakai `View::share('title', ...)` di component PHP. Admin/customer dashboard pakai `<x-slot name="title">` yang diakses di layout. Layout fallback: `$title ?? config('app.name', 'Fofa Shop')`.
 - **Favicon** — `public/logo.png` (Fofa Shop red circle FS monogram) + generated `favicon.ico`, `favicon-32x32.png`, `favicon-16x16.png`. `<link rel="icon">` di semua 6 layout files.
 
-**Behaviour:** Pure presentational — tidak ada perubahan business logic (checkout/invoice/distributor/wallet). Implementasi actual lebih kaya dari deskripsi awal "Minecraft subtle blocky" → sekarang "Minecraft white-red blocky dual + green creature + grid BG (OKLCH 98.2%↔16% + accent 58%↔62% warm + mc-green 62% 0.17 145 mascot-only, slab rx8, pixel-cube Tier-A, mascot creature + 6 particles + blocky button + scroll fling, Catalogue, N7+Ft8)" per log Hallmark internal 2026-08-30.
+**Behaviour:** Pure presentational — tidak ada perubahan business logic (checkout/invoice/distributor/wallet). Implementasi actual lebih kaya dari deskripsi awal "Minecraft subtle blocky" → sekarang "Minecraft white-red blocky dual + green creature + grid BG (OKLCH 98.2%↔16% + accent 58%↔62% warm + mc-green 62% 0.17 145 mascot-only, slab rx8, pixel-cube Tier-A, mascot creature + 6 particles + blocky button + scroll fling, Catalogue, N7+Ft8)" per log Hallmark internal (tidak dipublikasikan).
 
-**Quick Reference:** `DESIGN-SYSTEM.md` — color palette, typography, graphics tech stack, motion tokens, common bug patterns. Load this FIRST when debugging design/theme issues.
+**Quick Reference:** dokumen design system terpisah (tidak disertakan di repository ini) — color palette, typography, graphics tech stack, motion tokens, common bug patterns. Load this FIRST when debugging design/theme issues.
 
 ## Language
 

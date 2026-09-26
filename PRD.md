@@ -1,12 +1,12 @@
 # Rancangan Teknis — Fofa Shop (Website Top Up Game)
 
-Catatan ini berisi rancangan awal arsitektur untuk proyek Fofa Shop, dibuat untuk keperluan review bersama senior dev.
+Catatan ini berisi rancangan awal arsitektur untuk proyek Fofa Shop, direkam sebagai bagian dari dokumentasi analisis sistem.
 
 ---
 
 ## 1. Konteks Proyek
 
-- Fofa Shop adalah website top-up game (voucher/diamond/UC dll), dikerjakan sebagai proyek untuk klien.
+- Fofa Shop adalah website top-up game (voucher/diamond/UC dll).
 - Model bisnis: reseller H2H — beli produk digital dari distributor via API, jual ke end user dengan markup.
 
 ---
@@ -269,7 +269,7 @@ Status enum: `pending → paid → processing → waiting_fulfillment → succes
 
 ### 7.2 Reseller Features
 
-> **Status: BAGIAN DROPPED in spec v1.3 (scope-cut komunitas) — SEBAGIAN.** Alasan: reseller channel dormant untuk launch skala komunitas. Baris yang di-drop: **4 Dokumentasi API** (reseller API docs — dormant), **5 Laporan transaksi & komisi** (reseller monthly reports — dormant), **7 Toko pribadi /toko/{slug}** (reseller store — no white-label store). Keputusan: spec internal (§Out of Scope v1.3, tidak dipublikasikan di repo ini). Baris tersebut TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case; baris lain tetap berlaku.
+> **Status: BAGIAN DROPPED in spec v1.3 (scope-cut komunitas) — SEBAGIAN.** Alasan: reseller channel dormant untuk launch skala komunitas. Baris yang di-drop: **4 Dokumentasi API** (reseller API docs — dormant), **5 Laporan transaksi & komisi** (reseller monthly reports — dormant), **7 Toko pribadi /toko/{slug}** (reseller store — no white-label store). Keputusan: scope-cut v1.3 (lihat `docs/analyst/spec.md` §Out of Scope). Baris tersebut TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case; baris lain tetap berlaku.
 
 | # | Fitur | Keterangan |
 |---|-------|-----------|
@@ -283,7 +283,7 @@ Status enum: `pending → paid → processing → waiting_fulfillment → succes
 
 ### 7.3 Reseller Analytics
 
-> **Status: DROPPED in spec v1.3 (scope-cut komunitas).** Alasan: click tracking & analytics tidak kritis untuk launch skala komunitas (reseller channel dormant). Keputusan: spec internal (§Out of Scope v1.3, tidak dipublikasikan di repo ini). Fitur ini TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case.
+> **Status: DROPPED in spec v1.3 (scope-cut komunitas).** Alasan: click tracking & analytics tidak kritis untuk launch skala komunitas (reseller channel dormant). Keputusan: scope-cut v1.3 (lihat `docs/analyst/spec.md` §Out of Scope). Fitur ini TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case.
 
 | # | Fitur | Keterangan |
 |---|-------|-----------|
@@ -306,7 +306,7 @@ Status enum: `pending → paid → processing → waiting_fulfillment → succes
 
 ### 7.5 Live Chat / CS Widget
 
-> **Status: DROPPED in spec v1.3 (scope-cut komunitas).** Alasan: live chat (Reverb) tidak diperlukan untuk launch skala komunitas — `laravel/reverb` dihapus total. Keputusan: spec internal (§Out of Scope v1.3, tidak dipublikasikan di repo ini). Fitur ini TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case.
+> **Status: DROPPED in spec v1.3 (scope-cut komunitas).** Alasan: live chat (Reverb) tidak diperlukan untuk launch skala komunitas — `laravel/reverb` dihapus total. Keputusan: scope-cut v1.3 (lihat `docs/analyst/spec.md` §Out of Scope). Fitur ini TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case.
 
 | # | Fitur | Keterangan |
 |---|-------|-----------|
@@ -317,7 +317,7 @@ Status enum: `pending → paid → processing → waiting_fulfillment → succes
 
 ### 7.6 Owner Features
 
-> **Status: BAGIAN DROPPED in spec v1.3 (scope-cut komunitas) — SEBAGIAN.** Alasan: baris **10 Export data pajak** (CSV/Excel di-drop, `maatwebsite/excel` dihapus — PDF tetap ada dari halaman transaksi; PPN 11% di-drop) dan baris **11 Pengaturan global** (global settings UI `/owner/settings` di-drop → pakai `.env`). Keputusan: spec internal (§Out of Scope v1.3, tidak dipublikasikan di repo ini). Baris tersebut TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case; baris lain tetap berlaku.
+> **Status: BAGIAN DROPPED in spec v1.3 (scope-cut komunitas) — SEBAGIAN.** Alasan: baris **10 Export data pajak** (CSV/Excel di-drop, `maatwebsite/excel` dihapus — PDF tetap ada dari halaman transaksi; PPN 11% di-drop) dan baris **11 Pengaturan global** (global settings UI `/owner/settings` di-drop → pakai `.env`). Keputusan: scope-cut v1.3 (lihat `docs/analyst/spec.md` §Out of Scope). Baris tersebut TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case; baris lain tetap berlaku.
 
 | # | Fitur | Keterangan |
 |---|-------|-----------|
@@ -335,7 +335,7 @@ Status enum: `pending → paid → processing → waiting_fulfillment → succes
 
 ### 7.7 Fraud Detection
 
-> **Status: DROPPED in spec v1.3 (scope-cut komunitas).** Alasan: fraud detection (rule-based) di-drop — manual monitoring cukup untuk launch. Keputusan: spec internal (§Out of Scope v1.3, tidak dipublikasikan di repo ini). Fitur ini TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case.
+> **Status: DROPPED in spec v1.3 (scope-cut komunitas).** Alasan: fraud detection (rule-based) di-drop — manual monitoring cukup untuk launch. Keputusan: scope-cut v1.3 (lihat `docs/analyst/spec.md` §Out of Scope). Fitur ini TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case.
 
 | # | Fitur | Keterangan |
 |---|-------|-----------|
@@ -348,7 +348,7 @@ Status enum: `pending → paid → processing → waiting_fulfillment → succes
 
 ### 7.8 Reports & Export
 
-> **Status: BAGIAN DROPPED in spec v1.3 (scope-cut komunitas) — SEBAGIAN, tidak seluruh subsection.** Alasan: standalone finance reports dashboard (`/owner/reports/*`) di-drop → PDF export pindah ke halaman transaksi admin (dipertahankan, see spec v1.3.1); CSV/Excel export (`maatwebsite/excel`) dan kalkulasi pajak (PPN 11%) di-drop. Keputusan: spec internal (§Out of Scope v1.3, tidak dipublikasikan di repo ini). Baris **1, 2, 3, 5** di bawah TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case. Baris **4 (Export PDF)** TETAP berlaku (dari halaman transaksi, ikut filter periode aktif).
+> **Status: BAGIAN DROPPED in spec v1.3 (scope-cut komunitas) — SEBAGIAN, tidak seluruh subsection.** Alasan: standalone finance reports dashboard (`/owner/reports/*`) di-drop → PDF export pindah ke halaman transaksi admin (dipertahankan, see spec v1.3.1); CSV/Excel export (`maatwebsite/excel`) dan kalkulasi pajak (PPN 11%) di-drop. Keputusan: scope-cut v1.3 (lihat `docs/analyst/spec.md` §Out of Scope). Baris **1, 2, 3, 5** di bawah TIDAK jadi requirement downstream — jangan di-trace ke SRS/use case. Baris **4 (Export PDF)** TETAP berlaku (dari halaman transaksi, ikut filter periode aktif).
 
 | # | Fitur | Keterangan |
 |---|-------|-----------|
@@ -461,4 +461,4 @@ Laporan keuangan + CSV/Excel/PDF export
 ### Phase 10: API Documentation
 Halaman dokumentasi API reseller
 
-Status: Reseller API docs di-scope-cut di spec v1.3; kontrak API terdokumentasi di `docs/analyst/api-contract.md`.
+Status: Reseller API docs di-scope-cut (lihat `docs/analyst/spec.md` v1.3); kontrak API terdokumentasi di `docs/analyst/api-contract.md`.
