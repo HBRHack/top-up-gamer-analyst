@@ -1,0 +1,40 @@
+# =============================================================================
+# .gitignore — top-up-gamer-analyst (repo dokumentasi analisis)
+# Repo ini HANYA berisi dokumen analisis (PRD, SRS, ERD, dsb).
+# Tidak ada kode aplikasi, tidak ada .env, tidak ada secret.
+# =============================================================================
+
+# --- Env & secret (jaga-jaga bila suatu saat folder ini diisi kode) ----------
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+.netrc
+
+# --- Tracker internal & artefak proses (milik repo aplikasi, jangan ikut) -----
+.scratch/
+.hallmark/
+docs/adr/
+
+# --- Dependency & build ------------------------------------------------------
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+/storage/*.key
+
+# --- Cache / log / OS --------------------------------------------------------
+.cache/
+*.log
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# --- Editor -------------------------------------------------------------------
+.idea/
+.vscode/
